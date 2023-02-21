@@ -18,21 +18,26 @@
 
 	<div class="ui-fluid">
 		<h:form id="formLogin">
-			<p:panel id="pnlLogin" header="Inicio de Sesion">
+		
+		<p:growl id="growl" showDetail="true" sticky="true" />
+		
+		
+			<p:panel id="pnlLogin" header="Inicio de Sesion" style="text-align:center">
+				<p:graphicImage name="imgs/usuario.png" width="15%"/>
 				<p:panelGrid id="pnlGridLogin" columns="2" 
-					columnClasses="ui-g-12 ui-md-2, ui-g-12 ui-md-4" 
+					columnClasses="ui-g-12 ui-md-12, ui-g-12 ui-md-12" 
 					layout="grid" 
 					styleClass="ui-panelgrid-blank ui-fluid">
 	
-					<p:outputLabel value="Usuario: " styleClass="colorText" for="txtUsuario"></p:outputLabel>
+					<p:outputLabel value="Usuario: " styleClass="colorText" for="txtUsuario" style="float:left"></p:outputLabel>
 					<p:inputText id="txtUsuario" value="#{loginController.usuario}"
 						required="true" requiredMessage="El usuario es requerido"></p:inputText>
 		
-					<h:outputLabel value="Contraseña: " styleClass="colorText" for="txtUsuario"></h:outputLabel>
+					<h:outputLabel value="Contraseña: " styleClass="colorText" for="txtPassword" style="float:left"></h:outputLabel>
 					<p:password id="txtPassword" value="#{loginController.password}"
 						required="true" requiredMessage="La contraseña es requerida"></p:password>
 					<p:outputLabel></p:outputLabel>
-					<p:commandButton value="Entrar" action="#{loginController.ingresar}" update="pnlGridLogin"></p:commandButton>
+					<p:commandButton value="Entrar" action="#{loginController.ingresar}" update="pnlGridLogin, growl"></p:commandButton>
 	
 				</p:panelGrid>
 			</p:panel>
